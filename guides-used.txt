@@ -1,0 +1,9 @@
+DROPDOWN OPTION
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml_elem_select
+
+UPDATE KEEP VALUE
+https://www.w3schools.com/php/php_form_complete.asp
+
+FOR DELETE FUNCTION GUIDE
+https://stackoverflow.com/questions/43286387/adding-a-delete-button-in-php-on-each-row-of-a-mysql-table
+

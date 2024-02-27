@@ -21,7 +21,7 @@ include("config.php");
 
 <body>
 
-    <h1 class="text-center mt-4">Creating a Task</h1>
+    <h1 class="text-center mt-4">Create a Task</h1>
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-9">
@@ -54,9 +54,9 @@ include("config.php");
                         </div>
 
                         <div class="col-md-12 mb-3 text-center mt-4">
-                            <button type="button" value="Back" class="btn btn-primary" onclick="history.back();"
+                            <button type="button" value="Back" class="btn" id="mgaButtons" onclick="history.back();"
                                 style="float: left;">Go Back</button>
-                            <button type="submit" name="insertTask" class="btn btn-primary "
+                            <button type="submit" name="insertTask" class="btn" id="mgaButtons"
                                 style="float: right;">Submit</button>
                         </div>
                     </div>

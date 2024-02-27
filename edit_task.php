@@ -49,12 +49,12 @@ include("config.php");
 
                                     <div class="col-md-4 mb-3">
                                         <label for="middlename" class="form-label">Priority</label>
-                                        <select id="priority" name="priority" class="form-control"
-                                            value="<?= $task['priority']; ?>">
-                                            <option value="" disabled selected>Select priority</option>
-                                            <option value="Low">Low</option>
-                                            <option value="Medium">Medium</option>
-                                            <option value="High">High</option>
+                                        <select id="priority" name="priority" class="form-control">
+                                            <option value="" disabled>Select priority</option>
+                                            <option value="Low" <?= ($task['priority'] == 'Low') ? 'selected' : ''; ?>>Low</option>
+                                            <option value="Medium" <?= ($task['priority'] == 'Medium') ? 'selected' : ''; ?>>Medium
+                                            </option>
+                                            <option value="High" <?= ($task['priority'] == 'High') ? 'selected' : ''; ?>>High</option>
                                         </select>
                                     </div>
 
@@ -65,9 +65,9 @@ include("config.php");
                                     </div>
 
                                     <div class="col-md-12 mb-3 text-center mt-4">
-                                        <button type="button" value="Back" class="btn btn-primary" onclick="history.back();"
+                                        <button type="button" value="Back" class="btn" onclick="history.back();" id="mgaButtons"
                                             style="float: left;">Go Back</button>
-                                        <button type="submit" name="updateTask" class="btn btn-primary "
+                                        <button type="submit" name="updateTask" class="btn" id="mgaButtons"
                                             style="float: right;">Submit</button>
                                     </div>
                                 </div>

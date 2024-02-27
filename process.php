@@ -38,7 +38,7 @@ if (isset($_POST["insertTask"])) {
     if ($task_duplicate_count > 0) {
         $_SESSION['status'] = "Task Already Exists! Please try again.";
         $_SESSION['status_code'] = "error";
-        header("Location: insert.php");
+        header("Location: create_task.php");
         exit();
     }
 
@@ -50,10 +50,10 @@ if (isset($_POST["insertTask"])) {
         $_SESSION['status_code'] = "success";
         header("Location: index.php");
         exit();
-    }else {
+    } else {
         $_SESSION['status'] = "Something went wrong! Please try again.";
         $_SESSION['status_code'] = "error";
-        header("Location: insert.php");
+        header("Location: create_task.php");
         exit();
     }
 
@@ -61,12 +61,14 @@ if (isset($_POST["insertTask"])) {
 
 if (isset($_POST["updateTask"])) {
 
+    $id = $_POST['id'];
+
     $title = $_POST['title'];
     $description = $_POST['description'];
     $priority = $_POST['priority'];
     $due_date = $_POST['due_date'];
 
-    $query = "UPDATE `tasks` SET `title`='$title',`description`='$description',`priority`='$priority',`due_date`='$due_date' WHERE 1";
+    $query = "UPDATE `tasks` SET `title`='$title',`description`='$description',`priority`='$priority',`due_date`='$due_date' WHERE id='$id'";
     $query_result = mysqli_query($con, $query);
 
     if ($query_result) {
@@ -74,10 +76,10 @@ if (isset($_POST["updateTask"])) {
         $_SESSION['status_code'] = "success";
         header("Location: index.php");
         exit();
-    }else {
+    } else {
         $_SESSION['status'] = "Something went wrong! Please try again.";
         $_SESSION['status_code'] = "error";
-        header("Location: insert.php");
+        header("Location: edit_task.php");
         exit();
     }
 

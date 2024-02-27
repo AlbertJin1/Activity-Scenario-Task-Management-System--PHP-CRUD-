@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Task Management System</h5>
 
-                        <a href="create_task.php" style="float: right;" class="btn btn-primary">Add a Task</a>
+                        <a href="create_task.php" style="float: right;" class="btn task" id="mgaButtons">Add a Task</a>
 
                         <!-- Table with stripped rows -->
                         <table class="table datatable">
@@ -43,17 +43,15 @@
                                                 <?= $row['due_date']; ?>
                                             </td>
 
-                                            <td class="text-center">
+                                            <td class="text-center vstack gap-3 mx-auto">
 
-                                                <a type="button" class="btn btn-primary"
+                                                <a type="button" class="btn btn-primary" id="customFont-Button"
                                                     href="index.php?id=<?= $row['id']; ?>">VIEW</a>
-                                                <a type="button" class="btn btn-warning"
+                                                <a type="button" class="btn btn-warning" id="customFont-Button"
                                                     href="edit_task.php?id=<?= $row['id']; ?>">UPDATE</a>
+                                                <a type="button" class="btn btn-danger" id="customFont-Button"
+                                                    href="delete_task.php?id=<?= $row['id']; ?>">DELETE</a>
 
-                                                <form action="process.php" method="POST">
-                                                    <input type="hidden" name="id" value="<?= $row['id']; ?>">
-                                                    <button type="submit" class="btn btn-danger" name=" ">DELETE</button>
-                                                </form>
                                             </td>
                                         </tr>
 
@@ -71,10 +69,11 @@
                             </tbody>
                         </table>
                         <!-- End Table with stripped rows -->
-
+                        <footer>
+                            <p>Task Management System | Regualos & Sarmiento @ 2024</p>
+                        </footer>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
