@@ -36,19 +36,19 @@ include("config.php");
 
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <label for="studentId" class="form-label">Title</label>
+                                        <label for="title" class="form-label">Title</label>
                                         <input type="text" class="form-control" id="title" name="title"
                                             value="<?= $task['title']; ?>">
                                     </div>
 
                                     <div class="col-md-12 mb-3">
-                                        <label for="firstName" class="form-label">Description</label>
+                                        <label for="description" class="form-label">Description</label>
                                         <textarea id="textarea" name="description" rows="5" cols="30"
                                             class="form-control"><?= $task['description']; ?></textarea>
                                     </div>
 
                                     <div class="col-md-4 mb-3">
-                                        <label for="middlename" class="form-label">Priority</label>
+                                        <label for="priority" class="form-label">Priority</label>
                                         <select id="priority" name="priority" class="form-control">
                                             <option value="" disabled>Select priority</option>
                                             <option value="Low" <?= ($task['priority'] == 'Low') ? 'selected' : ''; ?>>Low</option>
@@ -59,7 +59,7 @@ include("config.php");
                                     </div>
 
                                     <div class="col-md-4 mb-3">
-                                        <label for="dateOfBirth" class="form-label">Due Date</label>
+                                        <label for="dueDate" class="form-label">Due Date</label>
                                         <input type="date" class="form-control" id="dueDate" name="due_date"
                                             value="<?= $task['due_date']; ?>">
                                     </div>
@@ -94,14 +94,17 @@ include("config.php");
         crossorigin="anonymous"></script>
 
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
     if (isset($_SESSION['status']) && $_SESSION['status_code'] != '') {
         ?>
         <script>
-            swal({
-                title: "<?php echo $_SESSION['status']; ?>",
+            Swal.fire({
+                position: "center",
                 icon: "<?php echo $_SESSION['status_code']; ?>",
+                title: "<?php echo $_SESSION['status']; ?>",
+                showConfirmButton: false,
+                timer: 2000
             });
         </script>
         <?php

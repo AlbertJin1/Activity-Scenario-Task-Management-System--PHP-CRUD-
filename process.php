@@ -3,33 +3,24 @@ session_start();
 include("config.php");
 
 // PROCESS START ------------------------
-if (isset($_POST["loginButton"])) {
-
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $login_query = "SELECT `id`, `email`, `password`, `fname`, `mname`, `lname` FROM `user` WHERE `email` = '$email' AND `password` = '$password' LIMIT 1 ";
-    $login_result = mysqli_query($con, $login_query);
-
-    if (mysqli_num_rows($login_result) == 1) {
-        $_SESSION['status'] = "Welcome!";
-        $_SESSION['status_code'] = "success";
-        header("Location: index.php");
-        exit();
-    } else {
-        $_SESSION['status'] = "Invalid Username/Password";
-        $_SESSION['status_code'] = "error";
-        header("Location: login.php");
-        exit();
-    }
-}
-
 if (isset($_POST["insertTask"])) {
 
     $title = $_POST['title'];
     $description = $_POST['description'];
     $priority = $_POST['priority'];
     $due_date = $_POST['due_date'];
+
+    if (empty($due_date)) {
+        $_SESSION['status'] = "Date is blank!";
+        $_SESSION['status_code'] = "error";
+        header("Location: create_task.php");
+        exit();
+    } elseif (!strtotime($due_date)) {
+        $_SESSION['status'] = "Invalid Date!";
+        $_SESSION['status_code'] = "error";
+        header("Location: create_task.php");
+        exit();
+    }
 
     $check_task_duplicate_query = "SELECT * FROM `tasks` WHERE `title` = '$title' AND `description` = '$description' AND `priority` = '$priority' AND `due_date` = '$due_date'";
     $task_duplicate_result = mysqli_query($con, $check_task_duplicate_query);

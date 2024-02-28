@@ -36,14 +36,17 @@ include("config.php");
         crossorigin="anonymous"></script>
 
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
     if (isset($_SESSION['status']) && $_SESSION['status_code'] != '') {
         ?>
         <script>
-            swal({
-                title: "<?php echo $_SESSION['status']; ?>",
+            Swal.fire({
+                position: "center",
                 icon: "<?php echo $_SESSION['status_code']; ?>",
+                title: "<?php echo $_SESSION['status']; ?>",
+                showConfirmButton: false,
+                timer: 2000
             });
         </script>
         <?php
