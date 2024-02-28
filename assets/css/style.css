@@ -29,6 +29,12 @@ th {
     font-size: 24px;
 }
 
+h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+}
+
 td,
 select,
 input {
@@ -77,4 +83,16 @@ footer {
     color: black;
     text-align: center;
     padding-top: 10px;
+}
+
+#forView{
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+#forForm{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
 }
