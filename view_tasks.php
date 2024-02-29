@@ -15,7 +15,7 @@ include("config.php");
 
 <body>
 
-    <h1 class="text-center mt-4">Update Task Data</h1>
+    <h1 class="text-center mt-4">View Task Data</h1>
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-7">
