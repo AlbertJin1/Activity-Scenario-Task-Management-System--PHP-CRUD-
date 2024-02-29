@@ -10,6 +10,13 @@ if (isset($_POST["insertTask"])) {
     $priority = $_POST['priority'];
     $due_date = $_POST['due_date'];
 
+    if (empty($title) || empty($description) || empty($priority) || empty($due_date)) {
+        $_SESSION['status'] = "All fields are required!";
+        $_SESSION['status_code'] = "error";
+        header("Location: create_task.php");
+        exit();
+    }
+
     if (empty($due_date)) {
         $_SESSION['status'] = "Date is blank!";
         $_SESSION['status_code'] = "error";
@@ -58,6 +65,13 @@ if (isset($_POST["updateTask"])) {
     $description = $_POST['description'];
     $priority = $_POST['priority'];
     $due_date = $_POST['due_date'];
+
+    if (empty($title) || empty($description) || empty($priority) || empty($due_date)) {
+        $_SESSION['status'] = "All fields are required!";
+        $_SESSION['status_code'] = "error";
+        header("Location: edit_task.php?id=$id");
+        exit();
+    }
 
     $query = "UPDATE `tasks` SET `title`='$title',`description`='$description',`priority`='$priority',`due_date`='$due_date' WHERE id='$id'";
     $query_result = mysqli_query($con, $query);

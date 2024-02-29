@@ -54,8 +54,8 @@ include("config.php");
                         </div>
 
                         <div class="col-md-12 mb-3 text-center mt-4">
-                            <button type="button" value="Back" class="btn" id="mgaButtons" onclick="history.back();"
-                                style="float: left;">Go Back</button>
+                            <button type="button" value="Back" class="btn" id="mgaButtons"
+                                onclick="window.location.href = 'index.php';" style="float: left;">Go Back</button>
                             <button type="submit" name="insertTask" class="btn" id="mgaButtons"
                                 style="float: right;">Submit</button>
                         </div>
@@ -73,7 +73,7 @@ include("config.php");
         crossorigin="anonymous"></script>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
     if (isset($_SESSION['status']) && $_SESSION['status_code'] != '') {
         ?>

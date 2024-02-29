@@ -64,8 +64,8 @@ include("config.php");
                                     </div>
 
                                     <div class="col-md-12 mb-3 text-center mt-4">
-                                        <button type="button" value="Back" class="btn" onclick="history.back();" id="mgaButtons"
-                                            style="float: left;">Go Back</button>
+                                        <button type="button" value="Back" class="btn" onclick="window.location.href = 'index.php';"
+                                            id="mgaButtons" style="float: left;">Go Back</button>
                                         <!-- <button type="submit" name="updateTask" class="btn" id="mgaButtons"
                                             style="float: right;">Submit</button> -->
                                     </div>
